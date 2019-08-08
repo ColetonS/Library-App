@@ -12,5 +12,15 @@ module.exports = {
             {title, author, description, img}
         )
         res.status(201).send(newBook)
+    },
+    deleteBook: (req, res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+        db.delete_book([id]).then(result => {
+            res.status(200).send(result)
+        }).catch(err => {
+            console.log(err)
+            res.status(400).send('Failed to delete book!')
+        })
     }
 }

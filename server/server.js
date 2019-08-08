@@ -24,3 +24,5 @@ massive(CONNECTION_STRING)
     .catch(err => console.log(`Can't connect to db!`, err))
 
 app.get('/api/books', ctrl.getBooks)
+app.post('/api/books', ctrl.addBook)
+app.delete('/api/books/:id', ctrl.deleteBook)
